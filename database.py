@@ -1,7 +1,10 @@
+import os
 import sqlalchemy
 
+DB_URL = os.getenv('DB_URL')
+
 def query_db(depth, gradient):
-    engine = sqlalchemy.create_engine('postgresql://tdi:qKmd8s5ze7WAYV@adventureworks.tditrain.com:5431/wells')
+    engine = sqlalchemy.create_engine(DB_URL)
     conn = engine.connect()
 
     query = sqlalchemy.text("""
